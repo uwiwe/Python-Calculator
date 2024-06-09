@@ -13,28 +13,18 @@ while continue_calculations:
   oper = input("Pick an operation: + - * / \n")
   n2 = float(input("What's the second number?: "))
   
-  def addition(n1, n2):
-    return round(n1 + n2, 2)
-  
-  def sustraction(n1, n2):
-    return round(n1 - n2, 2)
-  
-  def multiplication(n1, n2):
-    return round(n1 * n2, 2)
-  
-  def division(n1, n2):
-    return round(n1 / n2, 2)
-  
-  if oper == "+":
-    result = addition(n1, n2)
-  elif oper == "-":
-    result = sustraction(n1, n2)
-  elif oper == "*":
-    result = multiplication(n1, n2)
-  elif oper == "/":
-    result = division(n1, n2)
+  operations = {
+    "+": n1 + n2,
+    "-": n1 - n2,
+    "*": n1 * n2,
+    "/": n1 / n2
+  }
 
-  print(f"{n1} {oper} {n2} = {result}")
+  if oper in operations:
+    result = operations[oper]
+    print(f"{n1} {oper} {n2} = {result}")
+  else:
+    print(f"Sorry, I can't use {oper}.")
   
   continue_calculating = input(f"Type 'y' to continue calculating with {result}, or type 'n' to start a new calculation: ")
   if continue_calculating == "n":
